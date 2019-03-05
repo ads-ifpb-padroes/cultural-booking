@@ -2,11 +2,10 @@ package br.edu.ifpb.cultural.booking.infra.model;
 
 import br.edu.ifpb.cultural.booking.domain.Atracao;
 
-import javax.ejb.Stateless;
+import java.io.Serializable;
 import java.util.List;
 
-@Stateless
-public interface AtracaoRepository {
+public interface AtracaoRepository extends Serializable {
 
     List<Atracao> getAll();
     Atracao getById(Long idAtracao);

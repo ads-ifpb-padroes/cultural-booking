@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="template.xhtml">
+
+    <ui:define name="content">
+
+        <div class="row">
+            <p:dataTable var="atracao" value="#{atracaoController.todasAsAtracoes}">
+
+                <p:column headerText="Título" sortBy="#{atracao.titulo}" styleClass="left-text" style="text-align: left" width="120">
+                    <h:outputText value="#{atracao.titulo}"/>
+                </p:column>
+
+                <p:column headerText="Data da Atração" sortBy="#{atracao.data}" styleClass="center-text" width="40">
+                    <h:outputText value="#{atracao.data}">
+                        <f:convertDateTime type="localDate" pattern="dd/MM/yyyy" />
+                    </h:outputText>
+                </p:column>
+
+                <p:column headerText="Valor" sortBy="#{atracao.valor}" styleClass="center-text" width="40">
+                    <h:outputText value="R$ #{atracao.valor}">
+                        <f:convertNumber minFractionDigits="2" minIntegerDigits="2" />
+                    </h:outputText>
+                </p:column>
+
+                <p:column headerText="Duração" styleClass="center-text" width="40">
+                    <h:outputText value="#{atracao.duracao} min"/>
+                </p:column>
+
+            </p:dataTable>
+        </div>
+
+    </ui:define>
+
+</ui:composition>
+
+</html>

@@ -3,7 +3,7 @@ package br.edu.ifpb.cultural.booking.domain;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -17,11 +17,9 @@ public class Atracao implements Serializable {
     private Long id;
     @Column(length = 200, nullable = false, unique = true)
     private String titulo;
+    @Column(columnDefinition = "DECIMAL(4,2)", nullable = false)
     private BigDecimal valor;
-    @Column(nullable = false, unique = true)
-    private LocalDateTime inicio;
-    @Column(nullable = false, unique = true)
-    private LocalDateTime fim;
+    private LocalDate data;
     @Column(nullable = false)
     private int duracao;
     @OneToMany(fetch = FetchType.LAZY)
@@ -59,20 +57,12 @@ public class Atracao implements Serializable {
         this.valor = valor;
     }
 
-    public LocalDateTime getInicio() {
-        return inicio;
+    public LocalDate getData() {
+        return data;
     }
 
-    public void setInicio(LocalDateTime inicio) {
-        this.inicio = inicio;
-    }
-
-    public LocalDateTime getFim() {
-        return fim;
-    }
-
-    public void setFim(LocalDateTime fim) {
-        this.fim = fim;
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 
     public int getDuracao() {
@@ -100,14 +90,13 @@ public class Atracao implements Serializable {
                 Objects.equals(id, atracao.id) &&
                 titulo.equals(atracao.titulo) &&
                 valor.equals(atracao.valor) &&
-                inicio.equals(atracao.inicio) &&
-                fim.equals(atracao.fim) &&
+                data.equals(atracao.data) &&
                 Objects.equals(acentos, atracao.acentos);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, titulo, valor, inicio, fim, duracao, acentos);
+        return Objects.hash(id, titulo, valor, data, duracao, acentos);
     }
 
     @Override
@@ -116,10 +105,10 @@ public class Atracao implements Serializable {
                 "id=" + id +
                 ", titulo='" + titulo + '\'' +
                 ", valor=" + valor +
-                ", inicio=" + inicio +
-                ", fim=" + fim +
+                ", data=" + data +
                 ", duracao=" + duracao +
                 ", acentos=" + acentos +
                 '}';
     }
+
 }

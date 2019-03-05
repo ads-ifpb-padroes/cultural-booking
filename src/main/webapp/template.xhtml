@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+    <style type="text/css">
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        .padding {
+            margin: auto;
+            padding: 0.5%;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        .left-text {
+            text-align: left;
+        }
+    </style>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"/>
+</h:head>
+
+<h:body>
+<ui:insert name="header">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo" style="padding-left: 5px;">Cultural-Booking</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="sass.html">Sass</a></li>
+            </ul>
+        </div>
+    </nav>
+</ui:insert>
+
+<div class="container padding">
+    <ui:insert name="content">
+
+    </ui:insert>
+</div>
+
+<footer class="page-footer">
+    <ui:insert name="footer">
+        <div class="container">
+            <div class="row">
+                Reserve seus acentos em atrações conosco!
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2019 - Todos os direitos reservados.
+            </div>
+        </div>
+    </ui:insert>
+</footer>
+</h:body>
+</html>

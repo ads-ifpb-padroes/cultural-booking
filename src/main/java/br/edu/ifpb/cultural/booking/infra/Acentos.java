@@ -3,17 +3,19 @@ package br.edu.ifpb.cultural.booking.infra;
 import br.edu.ifpb.cultural.booking.domain.Acento;
 import br.edu.ifpb.cultural.booking.infra.model.AcentoRepository;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
+@Stateless
 public class Acentos implements AcentoRepository {
 
     @PersistenceContext
     private EntityManager manager;
 
     public List<Acento> getAll() {
-        return manager.createQuery("SELECT a FROM Acento a").getResultList();
+        return manager.createQuery("FROM Acento a").getResultList();
     }
 
     public Acento getById(Long idAcento) {
