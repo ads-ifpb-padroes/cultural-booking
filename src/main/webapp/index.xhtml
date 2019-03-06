@@ -12,29 +12,31 @@
     <ui:define name="content">
 
         <div class="row">
-            <p:dataTable var="atracao" value="#{atracaoController.todasAsAtracoes}">
+            <h:form prependId="false" id="formAtracoes">
 
-                <p:column headerText="Título" sortBy="#{atracao.titulo}" styleClass="left-text" style="text-align: left" width="120">
-                    <h:outputText value="#{atracao.titulo}"/>
-                </p:column>
+                <p:dataTable var="atracao" value="#{atracaoController.atracoes}"
+                             emptyMessage="Não existem atrações cadastradas.">
+                    <p:column headerText="Título" sortBy="#{atracao.titulo}" styleClass="left-text"
+                              style="text-align: left" width="120">
+                        <h:outputText value="#{atracao.titulo}"/>
+                    </p:column>
 
-                <p:column headerText="Data da Atração" sortBy="#{atracao.data}" styleClass="center-text" width="40">
-                    <h:outputText value="#{atracao.data}">
-                        <f:convertDateTime type="localDate" pattern="dd/MM/yyyy" />
-                    </h:outputText>
-                </p:column>
+                    <p:column headerText="Data da Atração" sortBy="#{atracao.data}" styleClass="center-text" width="40">
+                        <h:outputText value="#{atracao.data}">
+                            <f:convertDateTime type="localDate" pattern="dd/MM/yyyy"/>
+                        </h:outputText>
+                    </p:column>
 
-                <p:column headerText="Valor" sortBy="#{atracao.valor}" styleClass="center-text" width="40">
-                    <h:outputText value="R$ #{atracao.valor}">
-                        <f:convertNumber minFractionDigits="2" minIntegerDigits="2" />
-                    </h:outputText>
-                </p:column>
+                    <p:column headerText="Valor" sortBy="#{atracao.valor}" styleClass="center-text" width="40">
+                        <h:outputText value="R$ #{atracao.valor}" />
+                    </p:column>
 
-                <p:column headerText="Duração" styleClass="center-text" width="40">
-                    <h:outputText value="#{atracao.duracao} min"/>
-                </p:column>
+                    <p:column headerText="Duração" styleClass="center-text" width="40">
+                        <h:outputText value="#{atracao.duracao} min"/>
+                    </p:column>
+                </p:dataTable>
 
-            </p:dataTable>
+            </h:form>
         </div>
 
     </ui:define>
