@@ -16,11 +16,21 @@ public class AtracaoController implements Serializable {
 
     @Inject
     private AtracaoRepository atracaoRepository;
+
     private List<Atracao> atracoes;
+    private Atracao atracao;
 
     @PostConstruct
     public void init() {
         this.atracoes = atracaoRepository.getAll();
+        this.atracao = new Atracao();
+    }
+
+    public String cadastrarAtracao() {
+        if (atracao.getId() == null) {
+            atracaoRepository.save(atracao);
+        }
+        return "index.xhtml?faces-redirect=true";
     }
 
 //    Getters and Setters
@@ -32,4 +42,11 @@ public class AtracaoController implements Serializable {
         this.atracoes = atracoes;
     }
 
+    public Atracao getAtracao() {
+        return atracao;
+    }
+
+    public void setAtracao(Atracao atracao) {
+        this.atracao = atracao;
+    }
 }

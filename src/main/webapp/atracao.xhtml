@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="template.xhtml">
+    <ui:define name="content">
+        <div class="row">
+            <h2 style="margin-bottom: 0px !important;">Cadastrar Atração</h2>
+            <hr/>
+            <br/>
+
+            <h:form prependId="false" id="formNewAtracao" styleClass="col s12">
+
+                <div class="row">
+                    <div class="input-field inline col s8">
+                        <h:inputText id="titulo_atracao"
+                                     placeholder="Digite o título da atração"
+                                     value="#{atracaoController.atracao.titulo}"
+                                     type="text"
+                                     required="true"
+                                     class="validate"/>
+                        <span class="helper-text">Titulo da Atração</span>
+                    </div>
+
+                    <div class="input-field col s4">
+                        <p:inputNumber id="valor_atracao"
+                                       placeholder="Digite o valor da atração"
+                                       value="#{atracaoController.atracao.valor}"
+                                       required="true"
+                                       minValue="0"
+                                       maxValue="9999"
+                                       decimalPlaces="2"
+                                       decimalSeparator=","
+                                       thousandSeparator="."
+                                       class="validate"/>
+                        <span class="helper-text">Valor da Atração</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s4">
+                        <p:inputMask id="data_atracao"
+                                     placeholder="Digite o valor da atração"
+                                     value="#{atracaoController.atracao.data}"
+                                     required="true"
+                                     mask="99/99/9999"
+                                     class="validate">
+                            <f:convertDateTime type="localDate" pattern="dd/MM/yyyy"/>
+                        </p:inputMask>
+                        <span class="helper-text">Data da Atração</span>
+                    </div>
+
+                    <div class="input-field col s4">
+                        <p:inputNumber id="duracao_atracao"
+                                       placeholder="Digite o tempo de duração da atração em minutos"
+                                       value="#{atracaoController.atracao.duracao}"
+                                       minValue="1"
+                                       maxValue="9999"
+                                       decimalPlaces="0"
+                                       decimalSeparator=""
+                                       thousandSeparator=""
+                                       class="validate"/>
+                        <span class="helper-text">Duração da Atração</span>
+                    </div>
+
+                    <div class="col s4">
+                        <a class="waves-effect waves-light btn-large"
+                           jsf:action="#{atracaoController.cadastrarAtracao()}">
+                            <i class="material-icons right">send</i>
+                            Enviar
+                        </a>
+                    </div>
+                </div>
+
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

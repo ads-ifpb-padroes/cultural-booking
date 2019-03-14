@@ -8,6 +8,7 @@
 <h:head>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <style type="text/css">
         body {
             display: flex;
@@ -21,7 +22,7 @@
 
         .padding {
             margin: auto;
-            padding: 0.5%;
+            padding: 0.25%;
         }
 
         .center-text {
@@ -34,39 +35,67 @@
     </style>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"/>
+    <script>
+        PrimeFaces.locales['pt'] = {
+            closeText: 'Fechar',
+            prevText: 'Anterior',
+            nextText: 'Próximo',
+            currentText: 'Começo',
+            monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+            dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+            dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+            weekHeader: 'Semana',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: '',
+            timeOnlyTitle: 'Só Horas',
+            timeText: 'Tempo',
+            hourText: 'Hora',
+            minuteText: 'Minuto',
+            secondText: 'Segundo',
+            currentText: 'Data Atual',
+            ampm: false,
+            month: 'Mês',
+            week: 'Semana',
+            day: 'Dia',
+            allDayText: 'Todo Dia'
+        };
+    </script>
 </h:head>
 
 <h:body>
-<ui:insert name="header">
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo" style="padding-left: 5px;">Cultural-Booking</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="sass.html">Sass</a></li>
-            </ul>
-        </div>
-    </nav>
-</ui:insert>
-
-<div class="container padding">
-    <ui:insert name="content">
-
-    </ui:insert>
-</div>
-
-<footer class="page-footer">
-    <ui:insert name="footer">
-        <div class="container">
-            <div class="row">
-                Reserve seus acentos em atrações conosco!
+    <ui:insert name="header">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="index.xhtml" class="brand-logo" style="padding-left: 5px;">Cultural-Booking</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="atracao.xhtml">Cadastrar Atração</a></li>
+                </ul>
             </div>
-        </div>
-        <div class="footer-copyright">
+        </nav>
+    </ui:insert>
+
+    <div class="container padding">
+        <ui:insert name="content">
+        </ui:insert>
+    </div>
+
+    <footer class="page-footer">
+        <ui:insert name="footer">
             <div class="container">
-                © 2019 - Todos os direitos reservados.
+                <div class="row">
+                    Reserve seus acentos em atrações conosco!
+                </div>
             </div>
-        </div>
-    </ui:insert>
-</footer>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2019 - Todos os direitos reservados.
+                </div>
+            </div>
+        </ui:insert>
+    </footer>
 </h:body>
 </html>
